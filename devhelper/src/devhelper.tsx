@@ -8,9 +8,9 @@ function App() {
         DevHelper
       </header>
       <div className="App-tabs">
-    <button className="App-tab-button active" id="tab1-btn">Python</button>
-    <button className="App-tab-button" id="tab2-btn">Java</button>
-    <button className="App-tab-button" id="tab3-btn">C Programming</button>
+        <button className="App-tab-button active" id="tab1-btn">Python</button>
+        <button className="App-tab-button" id="tab2-btn">Java</button>
+        <button className="App-tab-button" id="tab3-btn">C Programming</button>
       </div>
     </div>
   );
