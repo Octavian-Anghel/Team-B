@@ -6,10 +6,10 @@ function App() {
     <div className="App">
     <header className="App-header">
         DevHelper
-        <p>
+      </header>
+      <p>
           PlaceHolder
         </p>
-      </header>
     </div>
   );
 }
