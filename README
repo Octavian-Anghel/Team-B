@@ -1,5 +1,8 @@
 Team B README File
 
+This sofrware is Called DevHelper and is created for educational purposes for the University of Maine Computer Science course COS 420
+This software is a React TypeScript webpage that provides coding practice, emotional support and motivation for Software Devs struggling with imposter syndrome.
+
 Team Name: Team Bananas!
 
 Names:Octavian Anghel, Gabriel Fitzpatrick, Gabriel Russell, Shreyash Parajuli
@@ -18,3 +21,8 @@ In the realm of skill acquisition, particularly within the context of online and
 Problem Statement 2:
 In technology education, particularly in online or remote learning, students often grapple with imposter syndrome—an enduring belief that their work falls short or should be more advanced given their stage in the field. Traditional methods like critiques and peer feedback fail to address imposter syndrome's more profound emotional and psychological dimensions. This deficiency stems from a fundamental challenge: learners typically seek technical knowledge to solve immediate problems they encounter in their projects. However, they may not actively seek emotional support and confidence-building resources despite their evident need. Existing technical resources rarely integrate emotional support and encouragement into their offerings. Given this, the question arises: How can we enhance learners' existing avenues for seeking technical knowledge to seamlessly integrate emotional support and encouragement, thus equipping them with the tools to overcome self-doubt and nurture their talents effectively? This challenge aligns with the standards and resources available in online creative education while addressing the critical emotional dimension often neglected in traditional learning approaches.
 
+Installation and Build Process:
+
+-created a react-app called devhelper and installed the correct scripts to run the web application
+-added a header to the home page with the name DevHelper
+-added 3 buttons for different coding languages to the home page, they do not function yet.
