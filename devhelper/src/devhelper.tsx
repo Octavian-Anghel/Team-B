@@ -1,12 +1,17 @@
 import React from 'react';
-import Homepage from './components/homepage';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import HomePage from './components/homepage';
+import LoginPage from './components/Login';
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <Homepage />
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path="/" component={HomePage} />
+        <Route path="/login" component={LoginPage} />
+      </Switch>
+    </Router>
   );
-}
+};
 
 export default App;
