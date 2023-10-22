@@ -9,4 +9,7 @@ export const saveUser = (user: User) => {
 export const getUser = (): User | null => {
     const userStr = localStorage.getItem(USER_KEY);
     return userStr ? JSON.parse(userStr) : null;
-}
+};
+export const clearUser = () => {
+    localStorage.removeItem(USER_KEY)
+};
