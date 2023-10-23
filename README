@@ -33,3 +33,5 @@ Deliverable 2
 -added a login component
 -added an account registration component
 -added an interface for user object storage
+-created a homepage component
+-created routes for signup, login and homepage. 
