@@ -23,6 +23,13 @@ In technology education, mainly online or remote learning, students often grappl
 
 Installation and Build Process:
 
+Deliverable 1
 -created a react app called DevHelper and installed the correct scripts to run the web application
 -added a header to the home page with the name DevHelper
 -added three buttons for different coding languages to the home page; they do not function yet.
+
+Deliverable 2
+-added a user interface
+-added a login component
+-added an account registration component
+-added an interface for user object storage
