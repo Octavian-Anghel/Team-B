@@ -1,58 +1,55 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
-import axios from 'axios';
+//import { Redirect } from 'react-router-dom';
+import { User } from '../interfaces/user';
+import { saveUser, getUser, clearUser } from '../interfaces/userstorage';
 
-const Registration = () => {
-  const history = useHistory();
+const Registration: React.FC = () => {
+    const [username, setName] = useState<string>('');
+    const [password, setPassword] = useState<string>('');
+    const [email, setEmail] = useState<string>('');
+    const [message, setMessage] = useState<string>('');
+    //const [redirectToHome, setRedirectToHome] = useState<boolean>(true);
 
-  const [name, setName] = useState(''); // New state for the name field
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+    const handleSubmit = () => {
+        if (username && password && email) {
+            const newUser: User = {
+                username,
+                password, 
+                email
+            };
+            saveUser(newUser);
+            setMessage('Registration successful!');
 
-  const handleRegistration = async () => {
-    try {
-      const response = await axios.post('YOUR_API_REGISTER_ENDPOINT', {
-        name,  // Send the name field as well to the API
-        username,
-        password,
-      });
+        } else {
+            setMessage('Please fill out all fields.');
+        }
+    };
 
-      if (response.status === 201) {
-        history.push('/homepage');
-      }
-    } catch (error) {
-      console.error('Registration failed:', error);
-    }
-  };
-
-  return (
-    <div>
-      <h2>Register</h2>
-
-      <input  // New input field for the name
-        type="text"
-        placeholder="Name"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
-
-      <input
-        type="text"
-        placeholder="Username"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-      />
-
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-
-      <button onClick={handleRegistration}>Register</button>
-    </div>
-  );
+    return (
+        <div className="registration-container">
+            <h2>Registration</h2>
+            <div>
+                <label>
+                    Username: 
+                    <input type="text" value={username} onChange={(e) => setName(e.target.value)} />
+                </label>
+            </div>
+            <div>
+                <label>
+                    Password: 
+                    <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                </label>
+            </div>
+            <div>
+                <label>
+                    Email: 
+                    <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                </label>
+            </div>
+            <button onClick={handleSubmit}>Register</button>
+            {message && <p>{message}</p>}
+        </div>
+    );
 };
 
 export default Registration;
