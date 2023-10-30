@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 //import { Redirect } from 'react-router-dom';
 import { User } from '../interfaces/user';
-import { saveUser, getUser, clearUser } from '../interfaces/userstorage';
+import { saveUser } from '../interfaces/userstorage';
 
 const Registration: React.FC = () => {
     const [username, setName] = useState<string>('');
