@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { saveUser } from '../interfaces/userstorage';
-const axios = require('axios');
+//const axios = require('axios');
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
