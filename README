@@ -35,3 +35,7 @@ Deliverable 2
 -added an interface for user object storage
 -created a homepage component
 -created routes for signup, login and homepage. 
+
+Deliverable 3
+-Added a dashboard interface that will be used for language pages
+-Added a test file for the login component
