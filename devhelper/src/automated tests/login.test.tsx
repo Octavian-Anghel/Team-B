@@ -16,7 +16,7 @@ describe('<Login />', () => {
   test('it should render a login button', () => {
     render(<Login />);
   
-    const loginButton = screen.getByText('button', { name: 'Login' });
+    const loginButton = screen.getByRole('button', { name: 'Login' });
     expect(loginButton).toBeInTheDocument();
   });
 });
