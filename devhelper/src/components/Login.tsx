@@ -1,41 +1,42 @@
 import React, { useState } from 'react';
-import { saveUser } from '../interfaces/userstorage';
-//const axios = require('axios');
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { collection, query, where, getDocs } from 'firebase/firestore';
+import { database, auth } from '../firebase-config';
+
 const Login = () => {
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleLogin = () => {
-    // Assuming you have an API to authenticate the user and get user data
-    // Replace this with your actual API call
-    fetch('YOUR_API_ENDPOINT', {
-      method: 'POST',
-      body: JSON.stringify({ username, password }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        // Assuming the API response contains user data
-        // Replace 'data' with the actual user data property in your API response
-        saveUser(data); // Save the user data to local storage
-      })
-      .catch((error) => {
-        console.error('Login failed:', error);
-        // Handle login error here
-      });
+  const handleLogin = async () => {
+    try {
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+
+      const usersRef = collection(database, "User Data");
+      const q = query(usersRef, where("email", "==", user.email));
+      const querySnapshot = await getDocs(q);
+
+      if (querySnapshot.empty) {
+        console.error('Login failed: User not found in database');
+      } else {
+        console.log('Login successful:', user);
+      }
+    } catch (error: any) {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.error('Login failed:', errorCode, errorMessage);
+    }
   };
 
-  return(
+  return (
     <div className="center-wrapper">
       <div className="login-container">
         <h2>Login</h2>
         <input
-          type="text"
-          placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
         <input
           type="password"

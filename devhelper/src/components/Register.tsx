@@ -1,25 +1,26 @@
 import React, { useState } from 'react';
-//import { Redirect } from 'react-router-dom';
-import { User } from '../interfaces/user';
-import { saveUser } from '../interfaces/userstorage';
+import { initializeApp } from 'firebase/app';
+import { getFirestore, collection, addDoc } from 'firebase/firestore';
+import { firebaseConfig } from "../firebase-config";
 
-const Registration: React.FC = () => {
-    const [username, setName] = useState<string>('');
-    const [password, setPassword] = useState<string>('');
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const database = getFirestore(app);
+
+const Register: React.FC = () => {
     const [email, setEmail] = useState<string>('');
+    const [password, setPassword] = useState<string>('');
     const [message, setMessage] = useState<string>('');
-    //const [redirectToHome, setRedirectToHome] = useState<boolean>(true);
 
-    const handleSubmit = () => {
-        if (username && password && email) {
-            const newUser: User = {
-                username,
-                password, 
-                email
-            };
-            saveUser(newUser);
-            setMessage('Registration successful!');
-
+    const handleSubmit = async () => {
+        if (email && password) {
+            try {
+                await addDoc(collection(database, "User Data"), { email, password });
+                setMessage('Registration successful!');
+            } catch (error) {
+                console.error("Error adding user: ", error);
+                setMessage('Registration failed. Please try again.');
+            }
         } else {
             setMessage('Please fill out all fields.');
         }
@@ -30,8 +31,8 @@ const Registration: React.FC = () => {
             <h2>Registration</h2>
             <div>
                 <label>
-                    Username: 
-                    <input type="text" value={username} onChange={(e) => setName(e.target.value)} />
+                    Email: 
+                    <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
                 </label>
             </div>
             <div>
@@ -40,16 +41,10 @@ const Registration: React.FC = () => {
                     <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
                 </label>
             </div>
-            <div>
-                <label>
-                    Email: 
-                    <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-                </label>
-            </div>
             <button onClick={handleSubmit}>Register</button>
             {message && <p>{message}</p>}
         </div>
     );
 };
 
-export default Registration;
+export default Register;
