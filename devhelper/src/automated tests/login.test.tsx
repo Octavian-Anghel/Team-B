@@ -3,20 +3,20 @@ import { render, screen } from '@testing-library/react';
 import Login from '../components/Login';
 
 describe('<Login />', () => {
-  test('it should render username and password input fields', () => {
+  test('it should render email and password input fields', () => {
     render(<Login />);
 
-    const usernameInput = screen.getByPlaceholderText('Username');
+    const emailInput = screen.getByPlaceholderText('Email');
     const passwordInput = screen.getByPlaceholderText('Password');
   
-    expect(usernameInput).toBeInTheDocument();
+    expect(emailInput).toBeInTheDocument();
     expect(passwordInput).toBeInTheDocument();
   });
 
   test('it should render a login button', () => {
     render(<Login />);
   
-    const loginButton = screen.getByText('Login');
+    const loginButton = screen.getByText('button', { name: 'Login' });
     expect(loginButton).toBeInTheDocument();
   });
 });
