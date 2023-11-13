@@ -25,7 +25,7 @@ const Register: React.FC = () => {
                 await sendEmailVerification(userCredential.user);
 
                 // Save user data to the database
-                await addDoc(collection(database, "User Data"), { email, uid: userCredential.user.uid });
+                await addDoc(collection(database, "User Data"), { email,password, uid: userCredential.user.uid });
 
                 setMessage('Registration successful! Please check your email for verification.');
             } catch (error) {
