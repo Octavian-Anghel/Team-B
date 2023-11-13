@@ -1,11 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import '../App.css';
 
 function Homepage() {
+  const history = useHistory();
+
   const handleRefresh = () => {
     // Delay the page refresh by 500 milliseconds
     setTimeout(() => {
+      history.push('/'); // Navigate back to the login page
       window.location.reload();
     }, 500);
   };
@@ -23,9 +26,7 @@ function Homepage() {
       <p> under construction</p>
       
       {/* Button to navigate back to the login page with refresh functionality */}
-      <Link to="/" onClick={handleRefresh}>
-        <button className="App-button">Back to Login</button>
-      </Link>
+      <button className="App-button" onClick={handleRefresh}>Back to Login</button>
     </div>
   );
 }

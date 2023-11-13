@@ -1,17 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { collection, query, where, getDocs } from 'firebase/firestore';
 import { database, auth } from '../firebase-config';
-import { useHistory, Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 const Login: React.FC = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [message, setMessage] = useState('');
     const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const [isEnterClicked, setIsEnterClicked] = useState(false);
-    const [isRegisterClicked, setIsRegisterClicked] = useState(false);
-    const history = useHistory();  // Use the useHistory hook to get the history object
+    const history = useHistory();
 
     const handleLogin = async () => {
         try {
@@ -49,44 +47,14 @@ const Login: React.FC = () => {
     };
 
     const handleEnter = () => {
-        // Set isEnterClicked to true when the "Enter" button is clicked
-        setIsEnterClicked(true);
+        // Redirect to homepage immediately
+        history.push('/homepage');
     };
 
     const handleRegister = () => {
-        // Set isRegisterClicked to true when the "Register" button is clicked
-        setIsRegisterClicked(true);
+        // Redirect to signup page immediately
+        history.push('/signup');
     };
-
-    useEffect(() => {
-        // This effect will run when the component mounts
-        // and also when isLoggedIn or isEnterClicked or isRegisterClicked changes
-        if (isEnterClicked) {
-            // Delay the page refresh by 500 milliseconds
-            const timeoutId = setTimeout(() => {
-                // Redirect to homepage after the delay
-                history.push('/homepage');
-                // Refresh the page after the redirect
-                window.location.reload();
-            }, 500);
-
-            // Clean up the timeout to prevent unintended refreshes
-            return () => clearTimeout(timeoutId);
-        }
-
-        if (isRegisterClicked) {
-            // Delay the page refresh by 500 milliseconds
-            const timeoutId = setTimeout(() => {
-                // Redirect to signup page after the delay
-                history.push('/signup');
-                // Refresh the page after the redirect
-                window.location.reload();
-            }, 500);
-
-            // Clean up the timeout to prevent unintended refreshes
-            return () => clearTimeout(timeoutId);
-        }
-    }, [isLoggedIn, isEnterClicked, isRegisterClicked, history]);
 
     return (
         <div className="center-wrapper">
@@ -110,10 +78,8 @@ const Login: React.FC = () => {
                 {/* Render the "Enter" button conditionally */}
                 {isLoggedIn && <button className="enter-button" onClick={handleEnter}>Enter</button>}
 
-                {/* Render the "Register" button with the same refresh functionality */}
-                <Link to="/signup" onClick={handleRegister}>
-                    <button className="register-button">Register</button>
-                </Link>
+                {/* Render the "Register" button */}
+                <button className="register-button" onClick={handleRegister}>Register</button>
             </div>
         </div>
     );

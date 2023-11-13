@@ -3,7 +3,7 @@ import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, addDoc } from 'firebase/firestore';
 import { getAuth, createUserWithEmailAndPassword, sendEmailVerification } from 'firebase/auth';
 import { firebaseConfig } from "../firebase-config";
-import { useHistory, Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
@@ -14,7 +14,7 @@ const Register: React.FC = () => {
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     const [message, setMessage] = useState<string>('');
-    const history = useHistory();  // Use the useHistory hook to get the history object
+    const history = useHistory();
 
     const handleSubmit = async () => {
         if (email && password) {
@@ -25,7 +25,7 @@ const Register: React.FC = () => {
                 await sendEmailVerification(userCredential.user);
 
                 // Save user data to the database
-                await addDoc(collection(database, "User Data"), { email,password, uid: userCredential.user.uid });
+                await addDoc(collection(database, "User Data"), { email, password, uid: userCredential.user.uid });
 
                 setMessage('Registration successful! Please check your email for verification.');
             } catch (error) {
@@ -38,13 +38,8 @@ const Register: React.FC = () => {
     };
 
     const handleReturnToLogin = () => {
-        // Delay the page refresh by 500 milliseconds
-        setTimeout(() => {
-            // Redirect to login page after the delay
-            history.push('/');
-            // Refresh the page after the redirect
-            window.location.reload();
-        }, 500);
+        // Redirect to login page immediately
+        history.push('/');
     };
 
     return (
@@ -65,10 +60,8 @@ const Register: React.FC = () => {
             <button onClick={handleSubmit}>Register</button>
             {message && <p>{message}</p>}
 
-            {/* Button to navigate back to the login page with refresh functionality */}
-            <Link to="/" onClick={handleReturnToLogin}>
-                <button className="App-button">Return to Login</button>
-            </Link>
+            {/* Button to navigate back to the login page */}
+            <button className="App-button" onClick={handleReturnToLogin}>Return to Login</button>
         </div>
     );
 };

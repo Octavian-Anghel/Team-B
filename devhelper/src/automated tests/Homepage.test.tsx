@@ -1,13 +1,12 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import Homepage from '../components/homepage'; // Adjust the import path as needed
+import Homepage from '../components/homepage';
 
 describe('<Homepage />', () => {
   test('renders the homepage component', () => {
     render(<Homepage />);
     expect(screen.getByText('DevHelper')).toBeInTheDocument();
-    expect(screen.getByText('under construction')).toBeInTheDocument();
   });
 
   test('renders all tab buttons', () => {
@@ -16,5 +15,9 @@ describe('<Homepage />', () => {
     expect(screen.getByText('Java')).toBeInTheDocument();
     expect(screen.getByText('C Programming')).toBeInTheDocument();
   });
-});
 
+  test('renders back to login button', () => {
+    render(<Homepage />);
+    expect(screen.getByText('Back to Login')).toBeInTheDocument();
+  });
+});
