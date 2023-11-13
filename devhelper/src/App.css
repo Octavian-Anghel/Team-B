@@ -18,19 +18,34 @@
   background-color: black;
   min-height: 40vh;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
+  padding: 10px;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.header-text {
+  flex-grow: 1; /* Allow the header text to take up remaining space */
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-info span {
+  margin-left: 10px; /* Add some margin between the header text and user info */
+  font-weight: bold;
 }
 
 .App-link {
   color: #61dafb;
 }
-.App-tab-button{
+
+.App-tab-button {
   background-color: black;
-  color:white;
+  color: white;
 }
 
 @keyframes App-logo-spin {
@@ -41,20 +56,32 @@
     transform: rotate(360deg);
   }
 }
+
 .center-wrapper {
   display: flex;
-  justify-content: center; 
-  align-items: center; 
-  height: 100vh; 
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
+
 .login-container {
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 20px;
-  border-radius: 5px; 
-  background-color: #ffffff; 
+  border-radius: 5px;
+  background-color: #ffffff;
   width: 400px;
   height: 200px;
 }
+
 .login-container h2 {
   text-align: center;
+}
+
+.enter-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
