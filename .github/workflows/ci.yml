@@ -18,6 +18,9 @@ jobs:
       with:
         node-version: '18.17.1'
 
+    - name: Change to App Directory
+      run: cd devhelper
+
     - name: Install Dependencies
       run: npm install
 
