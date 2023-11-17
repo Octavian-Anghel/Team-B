@@ -23,9 +23,14 @@ jobs:
 
     - name: Install Dependencies
       run: npm install
+      working-directory: ./devhelper
 
     - name: Build
       run: npm run build
+      working-directory: ./devhelper
+
 
     - name: Run Tests
-      run: npm test
+      run: npm run test
+      working-directory: ./devhelper
+
