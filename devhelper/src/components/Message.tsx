@@ -1,8 +1,6 @@
 import { database } from '../firebase-config';
 import { collection, getDocs, query, where } from 'firebase/firestore';
-import emailservice from './emailservice';
 class MessageComponent {
-    private emailService = new emailservice();
     private lastSent: Date | null = null;
     private motivationalQuotes: string[] = [
         "Every journey begins with a single step.",
@@ -27,11 +25,7 @@ class MessageComponent {
         const message = this.getMotivationalMessage();
         const userEmail = await this.getUserEmail(userId);
 
-        if (userEmail) {
-            this.emailService.sendEmail(userEmail, 'Motivational Message', message);
-        }
-
-        this.lastSent = new Date();
+        //find a way to send emails here to users
     }
 
     scheduleMotivationalMessages(userId: string): void {
