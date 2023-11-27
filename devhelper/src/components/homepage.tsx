@@ -7,11 +7,10 @@ function Homepage() {
   const history = useHistory();
   const [entryMessage, setEntryMessage] = useState('');
 
-  const messageComponent = new MessageComponent();
-
   useEffect(() => {
+    const messageComponent = new MessageComponent();
     setEntryMessage(messageComponent.getMotivationalMessage());
-  }, []);
+  }, []);  
 
   const handleRefresh = () => {
     setTimeout(() => {

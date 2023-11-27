@@ -21,18 +21,19 @@ class MessageComponent {
         return this.motivationalQuotes[randomIndex];
     }
 
-    async sendMotivationalMessage(userId: string): Promise<void> {
-        const message = this.getMotivationalMessage();
-        const userEmail = await this.getUserEmail(userId);
+    // async sendMotivationalMessage(userId: string): Promise<void> {
+    //     const message = this.getMotivationalMessage();
+    //     const userEmail = await this.getUserEmail(userId);
+    //     message;
+    //     userEmail;
+    //     //find a way to send emails here to users
+    // }
 
-        //find a way to send emails here to users
-    }
-
-    scheduleMotivationalMessages(userId: string): void {
-        setInterval(() => {
-            this.sendMotivationalMessage(userId);
-        }, 24 * 60 * 60 * 1000); // Set to repeat every 24 hours
-    }
+    // scheduleMotivationalMessages(userId: string): void {
+    //     setInterval(() => {
+    //         this.sendMotivationalMessage(userId);
+    //     }, 24 * 60 * 60 * 1000); // Set to repeat every 24 hours
+    // }
 }
 
 export { MessageComponent };
