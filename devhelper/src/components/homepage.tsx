@@ -1,14 +1,20 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
+import { MessageComponent } from './Message';
 import '../App.css';
 
 function Homepage() {
   const history = useHistory();
+  const [entryMessage, setEntryMessage] = useState('');
+
+  useEffect(() => {
+    const messageComponent = new MessageComponent();
+    setEntryMessage(messageComponent.getMotivationalMessage());
+  }, []);  
 
   const handleRefresh = () => {
-    // Delay the page refresh by 500 milliseconds
     setTimeout(() => {
-      history.push('/'); // Navigate back to the login page
+      history.push('/');
       window.location.reload();
     }, 500);
   };
@@ -18,6 +24,7 @@ function Homepage() {
       <header className="App-header">
         DevHelper
       </header>
+      {entryMessage && <div className="App-message">{entryMessage}</div>}
       <div className="App-tabs">
         <button className="App-tab-button" id="tab1">Python</button>
         <button className="App-tab-button" id="tab2">Java</button>
@@ -25,7 +32,6 @@ function Homepage() {
       </div>
       <p> under construction</p>
       
-      {/* Button to navigate back to the login page with refresh functionality */}
       <button className="App-button" onClick={handleRefresh}>Back to Login</button>
     </div>
   );
