@@ -1,6 +1,6 @@
 import {Link} from "./Link";
 
-class Resource{
+export class Resource{
     name: string;
     link: Link;
 
