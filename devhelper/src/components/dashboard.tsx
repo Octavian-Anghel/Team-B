@@ -1,12 +1,5 @@
 import React, { useState } from 'react';
-
-interface Resource {
-  name: string;
-  link: {
-    type: string;
-    url: string;
-  };
-}
+import {Resource} from "../interfaces/Resource";
 
 interface DashboardProps {
   resources: Resource[];
