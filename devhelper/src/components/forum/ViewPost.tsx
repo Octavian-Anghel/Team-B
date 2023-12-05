@@ -1,33 +1,71 @@
-const ViewPost = () => {
+import React, { useState, useEffect } from "react";
+
+// Define the structure of the props and state
+interface Post {
+  id: number;
+  title: string;
+  content: string;
+  userName: string;
+  votes: number;
+  comments: Comment[];
+}
+
+interface Comment {
+  id: number;
+  content: string;
+}
+
+interface ViewPostProps {
+  post: Post;
+  onWritePostClick: () => void;
+}
+
+const ViewPost = ({ post, onWritePostClick }: ViewPostProps) => {
+  const [comments, setComments] = useState<Comment[]>(post.comments || []);
+  const [newComment, setNewComment] = useState("");
+
+  const handleNewCommentChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setNewComment(e.target.value);
+  };
+
+  const handleCommentSubmit = () => {
+    // Assuming you want to add a new comment to the local state
+    const updatedComments = [
+      ...comments,
+      { id: Date.now(), content: newComment },
+    ];
+    setComments(updatedComments);
+    setNewComment("");
+  };
+
   return (
     <div className="post-container">
       <div className="post-header">
         <div className="user-info">
-          {/* Replace with user avatar and name */}
-          <img src="path-to-avatar.jpg" alt="User Avatar" />
-          <span>UserName</span>
+          <span>{post.userName}</span>
         </div>
-        <h1>Post Title</h1>
+        <h1>{post.title}</h1>
       </div>
-      <div className="post-content">
-        {/* Replace with actual post content */}
-        <p>Lorem ipsum dolor sit amet...</p>
-      </div>
+      <div className="post-content">{post.content}</div>
       <div className="post-actions">
-        {/* Replace with actual voting functionality */}
         <button>Upvote</button>
         <button>Downvote</button>
       </div>
       <div className="comments-section">
-        {/* Replace with a list of comments */}
-        <div>Comment 1</div>
-        <div>Comment 2</div>
-        {/* ... more comments */}
+        {comments.map((comment) => (
+          <div key={comment.id}>{comment.content}</div>
+        ))}
       </div>
       <div className="post-comment-box">
-        <input type="text" placeholder="Write a comment..." />
-        <button>Submit</button>
+        <input
+          type="text"
+          placeholder="Write a comment..."
+          value={newComment}
+          onChange={handleNewCommentChange}
+        />
+        <button onClick={handleCommentSubmit}>Submit</button>
       </div>
+      <button onClick={onWritePostClick}>Write Post</button>
     </div>
   );
 };
