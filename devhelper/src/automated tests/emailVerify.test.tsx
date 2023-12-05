@@ -14,7 +14,7 @@ jest.mock('firebase/auth', () => {
     createUserWithEmailAndPassword: jest.fn(() => Promise.resolve({
       user: {
         email: 'test@example.com',
-        // Add any other user properties needed
+        // Mock any other necessary user properties or methods
       }
     })),
     sendEmailVerification: jest.fn(() => Promise.resolve()),
@@ -34,7 +34,14 @@ describe('Register Component', () => {
 
     // Wait for the async function to complete
     await waitFor(() => {
-      expect(createUserWithEmailAndPassword).toHaveBeenCalledTimes(1);
+      expect(createUserWithEmailAndPassword).toHaveBeenCalledWith(
+        expect.anything(), // Mocked getAuth
+        'test@example.com',
+        'password123'
+      );
+    });
+
+    await waitFor(() => {
       expect(sendEmailVerification).toHaveBeenCalledTimes(1);
     });
   });
