@@ -1,3 +1,36 @@
+/* Reset some default styles */
+body, h1, h2, p, ul, li {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f8f8f8;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+#motivational-message {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#imposter-syndrome-section {
+  background-color: #e0e0e0;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+
+/* Your App-related styles */
 .App {
   text-align: center;
 }
@@ -5,11 +38,12 @@
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+  animation: App-logo-spin infinite 20s linear;
 }
 
-@media (prefers-reduced-motion: no-preference) {
+@media (prefers-reduced-motion: reduce) {
   .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+    animation: none; /* Disable animation if reduced motion is preferred */
   }
 }
 
@@ -28,9 +62,10 @@
 .App-link {
   color: #61dafb;
 }
-.App-tab-button{
+
+.App-tab-button {
   background-color: black;
-  color:white;
+  color: white;
 }
 
 @keyframes App-logo-spin {
@@ -41,20 +76,23 @@
     transform: rotate(360deg);
   }
 }
+
 .center-wrapper {
   display: flex;
-  justify-content: center; 
-  align-items: center; 
-  height: 100vh; 
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
+
 .login-container {
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 20px;
-  border-radius: 5px; 
-  background-color: #ffffff; 
+  border-radius: 5px;
+  background-color: #ffffff;
   width: 400px;
   height: 200px;
 }
+
 .login-container h2 {
   text-align: center;
 }
