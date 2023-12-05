@@ -1,12 +1,33 @@
 import React, { useState } from "react";
+import { Post } from "./Types";
 
-const WritePost = () => {
+interface WritePostProps {
+  onPostSubmitted: (post: Post) => void;
+}
+
+const WritePost: React.FC<WritePostProps> = ({ onPostSubmitted }) => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
   const handleSubmit = () => {
-    // Implement the logic to submit the new post
-    console.log(title, content);
+    if (!title || !content) {
+      // Handle the error appropriately
+      console.error("Title and content are required");
+      return;
+    }
+
+    const newPost: Post = {
+      id: Date.now(), // Mock ID
+      title,
+      content,
+      userName: "UserName", // Placeholder for user name
+      votes: 0,
+      comments: [],
+    };
+
+    onPostSubmitted(newPost);
+    setTitle("");
+    setContent("");
   };
 
   return (
