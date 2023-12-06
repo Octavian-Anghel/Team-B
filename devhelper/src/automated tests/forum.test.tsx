@@ -1,71 +1,74 @@
-import { render, screen } from "@testing-library/react";
-import app from "../devhelper";
-import { expect, jest, test } from "@jest/globals";
-import request from "supertest";
+import React from "react";
+import { render, fireEvent, screen } from "@testing-library/react";
+import ForumFrontEnd from "../components/forum/ForumFrontEnd";
+import ViewPost from "../components/forum/ViewPost";
+import WritePost from "../components/forum/WritePost";
+import "@testing-library/jest-dom/extend-expect";
 
-// posting new topics
-describe("Post Topic", () => {
-  it("should create a new topic when provided valid data", async () => {
-    const response = await request(app)
-      .post("/api/topics")
-      .send({ title: "New Topic", content: "This is a new topic" })
-      .set("Accept", "application/json");
+// Mock data for posts
+const mockPosts = [
+  {
+    id: 1,
+    title: "First Post",
+    content: "This is the first post content",
+    userName: "JohnDoe",
+    votes: 0,
+    comments: [{ id: 1, content: "First comment" }],
+  },
+];
 
-    expect(response.statusCode).toBe(201);
-    expect(response.body).toHaveProperty("id");
-    expect(response.body.title).toBe("New Topic");
+describe("ForumFrontEnd Component", () => {
+  it("renders without crashing", () => {
+    render(<ForumFrontEnd />);
   });
 
-  it("should return an error for invalid data", async () => {
-    const response = await request(app)
-      .post("/api/topics")
-      .send({ title: "", content: "" })
-      .set("Accept", "application/json");
-
-    expect(response.statusCode).toBe(400);
-  });
-});
-
-// commenting on posts
-describe("Comment on Post", () => {
-  it("should allow a user to comment on a post", async () => {
-    const response = await request(app)
-      .post("/api/posts/1/comments")
-      .send({ content: "This is a comment" })
-      .set("Accept", "application/json");
-
-    expect(response.statusCode).toBe(201);
-    expect(response.body).toHaveProperty("id");
-    expect(response.body.content).toBe("This is a comment");
+  it('displays the "Create New Post" button', () => {
+    render(<ForumFrontEnd />);
+    expect(screen.getByText("Create New Post")).toBeInTheDocument();
   });
 
-  it("should not allow empty comments", async () => {
-    const response = await request(app)
-      .post("/api/posts/1/comments")
-      .send({ content: "" })
-      .set("Accept", "application/json");
-
-    expect(response.statusCode).toBe(400);
+  it('switches to "Write Post" view when "Create New Post" is clicked', () => {
+    render(<ForumFrontEnd />);
+    fireEvent.click(screen.getByText("Create New Post"));
+    expect(
+      screen.getByPlaceholderText("Write something here...")
+    ).toBeInTheDocument();
   });
 });
 
-// upvoting/downvoting posts
-describe("Upvote and Downvote Post", () => {
-  it("should increase the vote count when upvoted", async () => {
-    const response = await request(app)
-      .post("/api/posts/1/upvote")
-      .set("Accept", "application/json");
-
-    expect(response.statusCode).toBe(200);
-    expect(response.body.votes).toBeGreaterThan(0);
+describe("ViewPost Component", () => {
+  it("renders a post", () => {
+    render(<ViewPost post={mockPosts[0]} onWritePostClick={() => {}} />);
+    expect(screen.getByText("First Post")).toBeInTheDocument();
+    expect(
+      screen.getByText("This is the first post content")
+    ).toBeInTheDocument();
   });
 
-  it("should decrease the vote count when downvoted", async () => {
-    const response = await request(app)
-      .post("/api/posts/1/downvote")
-      .set("Accept", "application/json");
+  it("renders comments for a post", () => {
+    render(<ViewPost post={mockPosts[0]} onWritePostClick={() => {}} />);
+    expect(screen.getByText("First comment")).toBeInTheDocument();
+  });
+});
 
-    expect(response.statusCode).toBe(200);
-    expect(response.body.votes).toBeLessThan(0);
+describe("WritePost Component", () => {
+  it("allows a user to input title and content", () => {
+    const onPostSubmitted = jest.fn();
+    render(<WritePost onPostSubmitted={onPostSubmitted} />);
+
+    fireEvent.change(screen.getByPlaceholderText("Post Title"), {
+      target: { value: "New Title" },
+    });
+    fireEvent.change(screen.getByPlaceholderText("Write something here..."), {
+      target: { value: "New Content" },
+    });
+    fireEvent.click(screen.getByText("Send"));
+
+    expect(onPostSubmitted).toHaveBeenCalledWith(
+      expect.objectContaining({
+        title: "New Title",
+        content: "New Content",
+      })
+    );
   });
 });

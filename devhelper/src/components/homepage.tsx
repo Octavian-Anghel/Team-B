@@ -1,16 +1,30 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import {
+  useHistory,
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Link,
+} from "react-router-dom";
 import ForumFrontEnd from "./forum/ForumFrontEnd";
 import { MessageComponent } from "./Message";
 import "../App.css";
 
 function Homepage() {
+  const history = useHistory();
   const [entryMessage, setEntryMessage] = useState("");
 
   useEffect(() => {
     const messageComponent = new MessageComponent();
     setEntryMessage(messageComponent.getMotivationalMessage());
   }, []);
+
+  const handleRefresh = () => {
+    setTimeout(() => {
+      history.push("/");
+      window.location.reload();
+    }, 500);
+  };
 
   return (
     <Router>
@@ -34,6 +48,10 @@ function Homepage() {
               </button>
             </div>
             <p> under construction</p>
+
+            <button className="App-button" onClick={handleRefresh}>
+              Back to Login
+            </button>
 
             {/* Link to the forum */}
             <Link to="/forum" className="App-button">

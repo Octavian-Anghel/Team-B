@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Post } from "./Types";
+import { Post, Comment } from "./Types";
 
 interface WritePostProps {
   onPostSubmitted: (post: Post) => void;

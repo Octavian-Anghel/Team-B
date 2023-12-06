@@ -1,5 +1,5 @@
 import React from "react";
-import { Post } from "./Types";
+import { Post, Comment } from "./Types";
 
 interface ViewPostProps {
   post: Post;
