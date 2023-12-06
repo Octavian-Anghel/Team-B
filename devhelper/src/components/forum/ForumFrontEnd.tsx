@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ViewPost from "./ViewPost";
 import WritePost from "./WritePost";
-import { Post, Comment } from "./Types";
+import { Post } from "./Types";
 
 const ForumFrontEnd = () => {
   const [posts, setPosts] = useState<Post[]>([]);
