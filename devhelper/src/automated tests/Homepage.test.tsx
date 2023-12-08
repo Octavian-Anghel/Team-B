@@ -13,7 +13,8 @@ describe('<Homepage />', () => {
     render(<Homepage />);
     expect(screen.getByText('Python')).toBeInTheDocument();
     expect(screen.getByText('Java')).toBeInTheDocument();
-    expect(screen.getByText('C Programming')).toBeInTheDocument();
+    expect(screen.getByText('C')).toBeInTheDocument();
+    expect(screen.getByText('Forum')).toBeInTheDocument();
   });
 
   test('renders back to login button', () => {
