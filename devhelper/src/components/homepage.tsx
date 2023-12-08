@@ -7,10 +7,6 @@ const Homepage: React.FC = () => {
   const history = useHistory();
   const [entryMessage, setEntryMessage] = useState('');
 
-  const navigate = (path: string) => {
-    history.push(path);
-  };
-  
   useEffect(() => {
     const messageComponent = new MessageComponent();
     setEntryMessage(messageComponent.getMotivationalMessage());
