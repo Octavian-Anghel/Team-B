@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import {Resource} from "../interfaces/Resource";
+import { useHistory } from 'react-router-dom';
 
 interface DashboardProps {
   resources: Resource[];
 }
 
 const Dashboard: React.FC<DashboardProps> = ({ resources }) => {
-  const [goal, setGoal] = useState('');
+  const [goal, setGoal] = useState<string>('');
   const [goalType, setGoalType] = useState<'long-term' | 'short-term'>('long-term');
-  const [currentGoal, setCurrentGoal] = useState('');
+  const [currentGoal, setCurrentGoal] = useState<string>('');
+  const history = useHistory();
 
   const handleGoalTypeChange = (type: 'long-term' | 'short-term') => {
     setGoalType(type);
@@ -23,9 +25,16 @@ const Dashboard: React.FC<DashboardProps> = ({ resources }) => {
     setCurrentGoal(goal);
     setGoal('');
   };
+  const handleRefresh = () => {
+    setTimeout(() => {
+      history.push('/homepage');
+      window.location.reload();
+    }, 500);
+  };
+  
 
   return (
-    <div className="dashboard">
+    <><div className="dashboard">
       <h1>Resources</h1>
       <ul>
         {resources.map((resource, index) => (
@@ -60,7 +69,7 @@ const Dashboard: React.FC<DashboardProps> = ({ resources }) => {
           <p>{currentGoal} ({goalType})</p>
         </div>
       )}
-    </div>
+    </div><div><button className="App-button" onClick={handleRefresh}>Back to Homepage</button></div></>
   );
 };
 
