@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import '../App.css';
+import { MessageComponent } from './Message';
 
 const Homepage: React.FC = () => {
   const history = useHistory();
@@ -8,7 +9,12 @@ const Homepage: React.FC = () => {
   const navigate = (path: string) => {
     history.push(path);
   };
-
+  
+  useEffect(() => {
+    const messageComponent = new MessageComponent();
+    setEntryMessage(messageComponent.getMotivationalMessage());
+  }, []);  
+  
   const handleRefresh = () => {
     setTimeout(() => {
       history.push('/');
@@ -21,6 +27,7 @@ const Homepage: React.FC = () => {
       <header className="App-header">
         DevHelper
       </header>
+      {entryMessage && <div className="App-message">{entryMessage}</div>}
       <div className="App-tabs">
         <button className="App-tab-button" onClick={() => navigate('/python')}>Python</button>
         <button className="App-tab-button" onClick={() => navigate('/java')}>Java</button>
