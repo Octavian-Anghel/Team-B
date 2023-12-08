@@ -6,9 +6,9 @@ interface DashboardProps {
 }
 
 const Dashboard: React.FC<DashboardProps> = ({ resources }) => {
-  const [goal, setGoal] = useState('');
+  const [goal, setGoal] = useState<string>('');
   const [goalType, setGoalType] = useState<'long-term' | 'short-term'>('long-term');
-  const [currentGoal, setCurrentGoal] = useState('');
+  const [currentGoal, setCurrentGoal] = useState<string>('');
 
   const handleGoalTypeChange = (type: 'long-term' | 'short-term') => {
     setGoalType(type);
