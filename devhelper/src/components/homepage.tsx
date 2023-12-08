@@ -1,66 +1,33 @@
-import React, { useState, useEffect } from "react";
-import {
-  useHistory,
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  Link,
-} from "react-router-dom";
-import ForumFrontEnd from "./forum/ForumFrontEnd";
-import { MessageComponent } from "./Message";
-import "../App.css";
+import React from 'react';
+import { useHistory } from 'react-router-dom';
+import '../App.css';
 
 function Homepage() {
   const history = useHistory();
-  const [entryMessage, setEntryMessage] = useState("");
-
-  useEffect(() => {
-    const messageComponent = new MessageComponent();
-    setEntryMessage(messageComponent.getMotivationalMessage());
-  }, []);
 
   const handleRefresh = () => {
+    // Delay the page refresh by 500 milliseconds
     setTimeout(() => {
-      history.push("/");
+      history.push('/'); // Navigate back to the login page
       window.location.reload();
     }, 500);
   };
 
   return (
-    <Router>
-      <Switch>
-        <Route path="/forum">
-          <ForumFrontEnd />
-        </Route>
-        <Route exact path="/">
-          <div className="App">
-            <header className="App-header">DevHelper</header>
-            {entryMessage && <div className="App-message">{entryMessage}</div>}
-            <div className="App-tabs">
-              <button className="App-tab-button" id="tab1">
-                Python
-              </button>
-              <button className="App-tab-button" id="tab2">
-                Java
-              </button>
-              <button className="App-tab-button" id="tab3">
-                C Programming
-              </button>
-            </div>
-            <p> under construction</p>
-
-            <button className="App-button" onClick={handleRefresh}>
-              Back to Login
-            </button>
-
-            {/* Link to the forum */}
-            <Link to="/forum" className="App-button">
-              Go to Forum
-            </Link>
-          </div>
-        </Route>
-      </Switch>
-    </Router>
+    <div className="App">
+      <header className="App-header">
+        DevHelper
+      </header>
+      <div className="App-tabs">
+        <button className="App-tab-button" id="tab1">Python</button>
+        <button className="App-tab-button" id="tab2">Java</button>
+        <button className="App-tab-button" id="tab3">C Programming</button>
+      </div>
+      <p> under construction</p>
+      
+      {/* Button to navigate back to the login page with refresh functionality */}
+      <button className="App-button" onClick={handleRefresh}>Back to Login</button>
+    </div>
   );
 }
 
