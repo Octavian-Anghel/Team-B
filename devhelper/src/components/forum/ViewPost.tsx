@@ -1,3 +1,6 @@
+// Assume that ViewPost.tsx is in the same directory
+
+// ViewPost.tsx
 import React from "react";
 import { Post } from "./Types";
 
@@ -7,24 +10,29 @@ interface ViewPostProps {
 }
 
 const ViewPost: React.FC<ViewPostProps> = ({ post, onWritePostClick }) => {
-  // Render the post and its comments
   return (
     <div className="post-container">
       <div className="post-header">
-        <div className="user-info">
-          <span>{post.userName}</span>
+        <div className="user-info">{/* User info here */}</div>
+        {/* Post Title Box */}
+        <div className="post-title-box">
+          <h1>{post.title}</h1>
         </div>
-        <h1>{post.title}</h1>
       </div>
-      <div className="post-content">{post.content}</div>
-      <div className="post-actions">
-        {/* Post actions like upvote and downvote would go here */}
-      </div>
+      {/* Post Content */}
+      <div className="post-content-box">{post.content}</div>
+      {/* Post Actions */}
+      <div className="post-actions">{/* Voting actions */}</div>
+      {/* Comments Section */}
       <div className="comments-section">
         {post.comments.map((comment) => (
-          <div key={comment.id}>{comment.content}</div>
+          // Comment Box
+          <div key={comment.id} className="comment-box">
+            {comment.content}
+          </div>
         ))}
       </div>
+      {/* Write Post/Reply Button */}
       <button onClick={onWritePostClick}>Reply</button>
     </div>
   );

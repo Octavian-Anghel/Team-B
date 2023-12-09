@@ -78,10 +78,28 @@
 }
 
 .enter-button {
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   padding: 10px 15px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.post-title-box,
+.post-content-box,
+.comment-box {
+  border: 1px solid #ccc;
+  padding: 8px;
+  margin-bottom: 10px;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+}
+
+.post-title-box {
+  margin: 16px 0;
+}
+
+.comment-box {
+  margin-left: 20px;
 }
