@@ -17,7 +17,7 @@ const App: React.FC = () => {
         <Route path="/python" render={() => <LanguageSelector language="Python" />} />
         <Route path="/java" render={() => <LanguageSelector language="Java" />} />
         <Route path="/c" render={() => <LanguageSelector language="C" />} />
-        {/* other routes */}
+        <Route path="/imposter" render={() => <LanguageSelector language="ImposterSyndrome" />} />
       </Switch>
     </Router>
   );

@@ -42,6 +42,12 @@ const Homepage: React.FC = () => {
       window.location.reload();
     }, 500);
   };
+  const handleImposteRefresh = () => {
+    setTimeout(() => {
+      history.push('/imposter');
+      window.location.reload();
+    }, 500);
+  };
 
   return (
     <div className="App">
@@ -53,10 +59,11 @@ const Homepage: React.FC = () => {
         <button className="App-tab-button" onClick={handlePythonRefresh}>Python</button>
         <button className="App-tab-button" onClick={handleJavaRefresh}>Java</button>
         <button className="App-tab-button" onClick={handleCRefresh}>C</button>
+        <button className="App-tab-button" onClick={handleImposteRefresh}>Imposter Syndrome</button>
         <button className="App-tab-button" onClick={handleForumRefresh}>Forum</button>
       </div>
       <p> Welcome to DevHelper, the go-to platform for programming enthusiasts and developers alike! Whether you're interested in Python, Java, or C Programming, DevHelper provides a streamlined and intuitive experience.licking on any language tab takes you to a dedicated page, enriched with resources and documentation specific to that language. Moreover, our platform encourages continuous learning and goal setting, allowing users to define and track their learning objectives, whether short-term or long-term. DevHelper stands out with its focus on usability and resource accessibility, making it an invaluable tool for both beginners and experienced developers in their coding journey. With DevHelper, every user is one click away from a vast repository of knowledge and a supportive community, making the journey into the world of programming more engaging and efficient. </p>
-      <button className="App-button" onClick={handleRefresh}>Back to Login</button>
+      <button className="App-button" onClick={handleRefresh}>Logout</button>
     </div>
   );
 }
