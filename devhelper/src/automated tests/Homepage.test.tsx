@@ -19,6 +19,6 @@ describe('<Homepage />', () => {
 
   test('renders back to login button', () => {
     render(<Homepage />);
-    expect(screen.getByText('Back to Login')).toBeInTheDocument();
+    expect(screen.getByText('Logout')).toBeInTheDocument();
   });
 });
