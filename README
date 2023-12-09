@@ -1,0 +1,56 @@
+Team B README File
+
+This software is called DevHelper and is created for educational purposes for the University of Maine Computer Science course COS 420
+This software is a React TypeScript webpage that provides coding practice, emotional support, and motivation for software developers struggling with imposter syndrome.
+
+Team Name: Team Bananas!
+
+Names: Octavian Anghel, Gabriel Fitzpatrick, Gabriel Russell, Shreyash Parajuli
+
+Roles:
+Octavian: Project Manager
+Gabriel F: Developer
+Gabriel R: Developer
+Shreyash: Designer
+
+Mission Statement: Our mission is to make learning to code online easier by creating a support system that offers technical guidance, instills confidence, and empowers learners to conquer imposter syndrome, ensuring they excel in their educational journey.
+
+Problem Statement 1:
+A common challenge emerges in skill acquisition, particularly within online and remote learning environments—imposter syndrome. This phenomenon leads to pervasive self-doubt and diminished confidence among learners. For instance, individuals venturing into new domains, such as novice programmers entering the tech industry, frequently feel inadequate and a fear of not belonging, impeding their learning progress and overall educational experience. Previous solutions, such as online forums and tutorials, have offered some assistance. However, they often fail to provide the personalized emotional and motivational support required to address the root cause of imposter syndrome effectively. These existing solutions do not adequately equip learners to overcome self-doubt and the fear of failure. To tackle this challenge, we must design an online learning support system that fosters a profound sense of belonging and builds unwavering confidence among learners. By concentrating on these critical aspects, we aim to empower individuals to overcome imposter syndrome, enhancing their educational journey. This solution will be designed to align seamlessly with online learning standards and resources while bridging the crucial emotional support gap identified through an analysis of prior solutions.
+
+Problem Statement 2:
+In technology education, mainly online or remote learning, students often grapple with imposter syndrome—an enduring belief that their work falls short or should be more advanced given their stage in the field. Traditional methods like critiques and peer feedback fail to address imposter syndrome's more profound emotional and psychological dimensions. This deficiency stems from a fundamental challenge: learners typically seek technical knowledge to solve immediate problems they encounter in their projects. However, they may not actively seek emotional support and confidence-building resources despite their evident need. Existing technical resources rarely integrate emotional support and encouragement into their offerings. Given this, the question arises: How can we enhance learners' existing avenues for seeking technical knowledge to seamlessly integrate emotional support and encouragement, thus equipping them with the tools to overcome self-doubt and nurture their talents effectively? This challenge aligns with the standards and resources available in online creative education while addressing the critical emotional dimension often neglected in traditional learning approaches.
+
+Installation and Build Process:
+
+Deliverable 1
+-created a react app called DevHelper and installed the correct scripts to run the web application
+-added a header to the home page with the name DevHelper
+-added three buttons for different coding languages to the home page; they do not function yet.
+
+Deliverable 2
+-added a user interface
+-added a login component
+-added an account registration component
+-added an interface for user object storage
+-created a homepage component
+-created routes for signup, login and homepage. 
+
+Deliverable 3
+-Added a dashboard interface that will be used for language pages
+-Added a test file for the login component
+-Updated UI by adding more features
+
+Deliverable 4
+-Updated the UI adding more features.
+-Updated the app.
+-addressed sequence diagram feedback.
+-fixed use case description and tables.
+-fixed task review process.
+
+Deliverable 5
+-Updated the UI Mockup to include messsage 
+-Started creating forum component
+-created MessegeComponent class
+
+

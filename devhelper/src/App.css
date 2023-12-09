@@ -1,0 +1,114 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  width: 100%;
+  background-color: black;
+  min-height: 40vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.header-text {
+  flex-grow: 1; /* Allow the header text to take up remaining space */
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-info span {
+  margin-left: 10px; /* Add some margin between the header text and user info */
+  font-weight: bold;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.App-tab-button {
+  background-color: black;
+  color: white;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.center-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-container {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #ffffff;
+  width: 400px;
+  height: 200px;
+}
+
+.login-container h2 {
+  text-align: center;
+}
+
+.enter-button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.post-container {
+  border: 1px solid #ccc;
+  margin-bottom: 16px;
+  padding: 8px;
+}
+
+.post-title-box {
+  padding: 8px;
+  border-bottom: 1px solid #ccc; /* Separates the post from the comments */
+}
+
+.comments-container {
+  margin-top: 8px;
+}
+
+.comment-box {
+  background-color: #f8f8f8;
+  margin-top: 8px;
+  padding: 8px;
+  border-left: 3px solid #ccc; /* Indentation line */
+  margin-left: 20px; /* Space from the left edge */
+}
+
+.reply-button {
+  margin-top: 8px;
+}
