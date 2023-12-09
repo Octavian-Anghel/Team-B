@@ -78,10 +78,37 @@
 }
 
 .enter-button {
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   padding: 10px 15px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.post-container {
+  border: 1px solid #ccc;
+  margin-bottom: 16px;
+  padding: 8px;
+}
+
+.post-title-box {
+  padding: 8px;
+  border-bottom: 1px solid #ccc; /* Separates the post from the comments */
+}
+
+.comments-container {
+  margin-top: 8px;
+}
+
+.comment-box {
+  background-color: #f8f8f8;
+  margin-top: 8px;
+  padding: 8px;
+  border-left: 3px solid #ccc; /* Indentation line */
+  margin-left: 20px; /* Space from the left edge */
+}
+
+.reply-button {
+  margin-top: 8px;
 }
