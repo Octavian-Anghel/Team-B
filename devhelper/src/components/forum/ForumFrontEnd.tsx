@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import ViewPost from "./ViewPost";
 import WritePost from "./WritePost";
 import { Post } from "./Types";
+import { useHistory } from "react-router-dom";
+import '../../css/forum.css'
 
 const ForumFrontEnd = () => {
+  const history = useHistory();
   const [posts, setPosts] = useState<Post[]>([]);
   const [view, setView] = useState<"VIEW" | "WRITE" | "COMMENT">("VIEW");
   const [currentPostId, setCurrentPostId] = useState<number | null>(null);
@@ -54,9 +57,15 @@ const ForumFrontEnd = () => {
     setCurrentPostId(postId);
     setView("COMMENT");
   };
+  const handleRefresh = () => {
+    setTimeout(() => {
+      history.push('/homepage');
+      window.location.reload();
+    }, 500);
+  };
 
   return (
-    <div>
+    <><div>
       <h1>Forum</h1>
       {view === "VIEW" && (
         <>
@@ -66,8 +75,7 @@ const ForumFrontEnd = () => {
               post={post}
               onUpvote={() => handleUpvote(post.id)}
               onDownvote={() => handleDownvote(post.id)}
-              onReply={() => handleReplyClick(post.id)}
-            />
+              onReply={() => handleReplyClick(post.id)} />
           ))}
           <button onClick={() => setView("WRITE")}>Create New Post</button>
         </>
@@ -75,7 +83,7 @@ const ForumFrontEnd = () => {
       {(view === "WRITE" || view === "COMMENT") && (
         <WritePost onPostSubmitted={handlePostSubmitted} />
       )}
-    </div>
+    </div><button className="App-button" onClick={handleRefresh}>Back to Homepage</button></>
   );
 };
 

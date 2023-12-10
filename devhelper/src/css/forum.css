@@ -1,0 +1,95 @@
+/* General Forum Styles */
+.forum-container, .post-container, .write-post-container {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  h1, .post-title-box h1 {
+    color: #333;
+    text-align: center;
+  }
+  
+  /* Post View Styles */
+  .post-container {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+  }
+  
+  .post-title-box h1 {
+    font-size: 1.5em;
+  }
+  
+  .post-content {
+    color: #666;
+    margin-top: 10px;
+  }
+  
+  .post-votes, .comments-section {
+    margin-top: 15px;
+  }
+  
+  /* Voting and Reply Buttons */
+  button, .post-actions button, .write-post-actions button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-right: 5px;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  /* Comments Section Styles */
+  .comment-box {
+    background-color: #f9f9f9;
+    padding: 10px;
+    margin-top: 10px;
+    border-left: 3px solid #4CAF50;
+  }
+  
+  /* Write Post Styles */
+  .write-post-container {
+    background-color: #f4f7f6;
+    padding: 15px;
+  }
+  
+  .write-post-header input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  textarea {
+    min-height: 100px;
+  }
+  
+  .write-post-actions {
+    text-align: right;
+  }
+  
+  /* Back to Homepage Button */
+  .App-button {
+    background-color: #008CBA;
+    color: white;
+    /* Other styles as needed */
+  }
+  
+  .App-button:hover {
+    background-color: #007B9A;
+  }
+  
