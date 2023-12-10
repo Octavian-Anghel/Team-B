@@ -51,14 +51,18 @@ const Login: React.FC = () => {
     };
 
     const handleEnter = () => {
-        // Redirect to homepage immediately
-        history.push('/homepage');
-    };
+        setTimeout(() => {
+          history.push('/homepage');
+          window.location.reload();
+        }, 500);
+      };
 
-    const handleRegister = () => {
-        // Redirect to signup page immediately
-        history.push('/signup');
-    };
+      const handleRegister= () => {
+        setTimeout(() => {
+          history.push('/');
+          window.location.reload();
+        }, 500);
+      };
 
     return (
         <div className="center-wrapper">

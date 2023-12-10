@@ -39,9 +39,11 @@ const Register: React.FC = () => {
     };
 
     const handleReturnToLogin = () => {
-        // Redirect to login page immediately
-        history.push('/');
-    };
+        setTimeout(() => {
+          history.push('/');
+          window.location.reload();
+        }, 500);
+      };
 
     return (
         <div className="registration-container">
