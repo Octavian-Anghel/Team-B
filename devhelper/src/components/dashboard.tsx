@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {Resource} from "../interfaces/Resource";
 import { useHistory } from 'react-router-dom';
+import '../css/dashboard.css'
 
 interface DashboardProps {
   resources: Resource[];

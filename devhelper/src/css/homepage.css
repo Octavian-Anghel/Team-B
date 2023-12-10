@@ -1,0 +1,70 @@
+.App {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+    min-height: 100vh;
+  }
+  
+  .App-header {
+    background-color: #282c34;
+    color: white;
+    padding: 20px;
+    font-size: 24px;
+  }
+  
+  .App-message {
+    margin: 20px 0;
+    padding: 10px;
+    background-color: #e7f3fe;
+    border-left: 6px solid #2196F3;
+    color: #333;
+  }
+  
+  /* Tab Buttons Styles */
+  .App-tabs {
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .App-tab-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .App-tab-button:hover {
+    background-color: #45a049;
+  }
+  
+  /* Logout Button Style */
+  .App-button {
+    background-color: #fbf5f4;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .App-button:hover {
+    background-color: #d32f2f;
+  }
+  p {
+    color: black;
+    line-height: 1.6;
+    margin: 20px;
+  }
+  .App .homepage-paragraph {
+    color: black;
+  }
+  
+  

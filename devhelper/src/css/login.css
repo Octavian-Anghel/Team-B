@@ -1,0 +1,76 @@
+/* Center Wrapper */
+.center-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f2f2f2;
+  }
+  
+  /* Login Container */
+  .login-container {
+    width: 300px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  h2 {
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Input Styles */
+  input[type="email"], input[type="password"] {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  input::placeholder {
+    color: #aaa;
+  }
+  
+  /* Button Styles */
+  button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  .enter-button {
+    background-color: #008CBA;
+  }
+  
+  .enter-button:hover {
+    background-color: #007B9A;
+  }
+  
+  .register-button {
+    background-color: #f44336;
+  }
+  
+  .register-button:hover {
+    background-color: #d32f2f;
+  }
+  
+  /* Message Style */
+  p {
+    color: #f44336;
+    margin-top: 10px;
+  }
+  

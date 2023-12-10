@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Post } from "./Types";
+import '../../css/forum.css'
 
 interface WritePostProps {
   onPostSubmitted: (post: Post) => void;
