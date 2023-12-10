@@ -48,6 +48,12 @@ const Homepage: React.FC = () => {
       window.location.reload();
     }, 500);
   };
+  const handleSettingsRefresh = () => {
+    setTimeout(() => {
+      history.push("/settings");
+      window.location.reload();
+    }, 500);
+  };
 
   return (
     <div className="App">
@@ -68,6 +74,9 @@ const Homepage: React.FC = () => {
         </button>
         <button className="App-tab-button" onClick={handleForumRefresh}>
           Forum
+        </button>
+        <button className="App-tab-button" onClick={handleSettingsRefresh}>
+          Settings
         </button>
       </div>
       <p className="homepage-paragraph">

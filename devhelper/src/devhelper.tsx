@@ -5,6 +5,7 @@ import LanguageSelector from './components/ChosenLanguage';
 import LoginPage from './components/Login';
 import SignUp from './components/Register';
 import Forum from './components/forum/ForumFrontEnd';
+import Settings from './components/settings';
 
 const App: React.FC = () => {
   return (
@@ -14,6 +15,7 @@ const App: React.FC = () => {
         <Route path="/homepage" component={HomePage} />
         <Route path="/signup" component={SignUp} />
         <Route path="/forum" component={Forum} />
+        <Route path="/settings" component={Settings} />
         <Route path="/python" render={() => <LanguageSelector language="Python" />} />
         <Route path="/java" render={() => <LanguageSelector language="Java" />} />
         <Route path="/c" render={() => <LanguageSelector language="C" />} />
