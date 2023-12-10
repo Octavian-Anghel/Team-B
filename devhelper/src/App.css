@@ -109,6 +109,22 @@
   margin-left: 20px; /* Space from the left edge */
 }
 
+.bi-arrow-up,
+.bi-arrow-down {
+  cursor: pointer;
+}
+
+/* Styles for the reply button */
 .reply-button {
-  margin-top: 8px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.reply-button:hover {
+  background-color: #0056b3;
 }

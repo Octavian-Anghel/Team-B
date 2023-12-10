@@ -11,7 +11,7 @@ const mockPosts = [
     id: 1,
     title: "First Post",
     content: "This is the first post content",
-    userName: "JohnDoe", // Include this field
+    userName: "JohnDoe",
     votes: 0,
     comments: [{ id: 1, content: "First comment" }],
   },
@@ -39,7 +39,12 @@ describe("ForumFrontEnd Component", () => {
 describe("ViewPost Component", () => {
   it("renders a post", () => {
     render(
-      <ViewPost post={mockPosts[0]} onUpvote={() => {}} onDownvote={() => {}} />
+      <ViewPost
+        post={mockPosts[0]}
+        onUpvote={() => {}}
+        onDownvote={() => {}}
+        onReply={() => {}}
+      />
     );
     expect(screen.getByText("First Post")).toBeInTheDocument();
     expect(
@@ -49,7 +54,12 @@ describe("ViewPost Component", () => {
 
   it("renders comments for a post", () => {
     render(
-      <ViewPost post={mockPosts[0]} onUpvote={() => {}} onDownvote={() => {}} />
+      <ViewPost
+        post={mockPosts[0]}
+        onUpvote={() => {}}
+        onDownvote={() => {}}
+        onReply={() => {}}
+      />
     );
     expect(screen.getByText("First comment")).toBeInTheDocument();
   });
