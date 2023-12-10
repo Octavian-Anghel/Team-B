@@ -4,6 +4,7 @@ import { getFirestore, collection, addDoc } from 'firebase/firestore';
 import { getAuth, createUserWithEmailAndPassword, sendEmailVerification } from 'firebase/auth';
 import { firebaseConfig } from "../firebase-config";
 import { useHistory } from 'react-router-dom';
+import '../Css/Register.css';
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);

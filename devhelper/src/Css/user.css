@@ -1,0 +1,34 @@
+/* user.css */
+
+/* Add styles based on where you use the User class */
+
+/* Example: Styling a user profile section */
+.user-profile {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  h2 {
+    color: #333333;
+  }
+  
+  /* Example: Styling buttons associated with user actions */
+  .user-button {
+    background-color: #4caf50;
+    color: #ffffff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .user-button:hover {
+    opacity: 0.8;
+  }
+  
+  /* Add more styles based on your application's UI */
+  

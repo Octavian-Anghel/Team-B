@@ -3,6 +3,10 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import { collection, query, where, getDocs } from 'firebase/firestore';
 import { database, auth } from '../firebase-config';
 import { useHistory } from 'react-router-dom';
+import '../Css/login.css';
+
+
+
 
 const Login: React.FC = () => {
     const [email, setEmail] = useState('');

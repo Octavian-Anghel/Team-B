@@ -1,5 +1,6 @@
 // user.ts
 import { Settings, Theme } from "../components/settings";
+import '../Css/user.css';
 
 class User {
   private email: string;

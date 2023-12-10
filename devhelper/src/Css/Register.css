@@ -1,0 +1,51 @@
+.registration-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #fff; /* Background color */
+    color: #333; /* Text color */
+  }
+  
+  h2 {
+    color: #007bff; /* Heading color */
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 10px;
+    color: #333; /* Label text color */
+  }
+  
+  input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+  }
+  
+  button {
+    background-color: #007bff; /* Button background color */
+    color: #fff; /* Button text color */
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3; /* Button background color on hover */
+  }
+  
+  p {
+    margin-top: 15px;
+    color: #333; /* Message text color */
+  }
+  
+  .App-button {
+    background-color: #ccc; /* Secondary button background color */
+    color: #333; /* Secondary button text color */
+    margin-top: 10px;
+  }
+  
+  .App-button:hover {
+    background-color: #bbb; /* Secondary button background color on hover */
+  }
+  
