@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import '../css/settings.css';
-// Define the types for theme and language
 type Theme = 'light' | 'dark';
 type Language = 'Python' | 'Java' | 'C';
 
