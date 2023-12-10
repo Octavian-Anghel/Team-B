@@ -1,55 +1,72 @@
 import React, { useState } from 'react';
-//import { Redirect } from 'react-router-dom';
-import { User } from '../interfaces/user';
-import { saveUser } from '../interfaces/userstorage';
+import { initializeApp } from 'firebase/app';
+import { getFirestore, collection, addDoc } from 'firebase/firestore';
+import { getAuth, createUserWithEmailAndPassword, sendEmailVerification } from 'firebase/auth';
+import { firebaseConfig } from "../firebase-config";
+import { useHistory } from 'react-router-dom';
+import '../css/register.css'
 
-const Registration: React.FC = () => {
-    const [username, setName] = useState<string>('');
-    const [password, setPassword] = useState<string>('');
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const database = getFirestore(app);
+const auth = getAuth(app);
+
+const Register: React.FC = () => {
     const [email, setEmail] = useState<string>('');
+    const [password, setPassword] = useState<string>('');
     const [message, setMessage] = useState<string>('');
-    //const [redirectToHome, setRedirectToHome] = useState<boolean>(true);
+    const history = useHistory();
 
-    const handleSubmit = () => {
-        if (username && password && email) {
-            const newUser: User = {
-                username,
-                password, 
-                email
-            };
-            saveUser(newUser);
-            setMessage('Registration successful!');
+    const handleSubmit = async () => {
+        if (email && password) {
+            try {
+                const userCredential = await createUserWithEmailAndPassword(auth, email, password);
 
+                // Send email verification
+                await sendEmailVerification(userCredential.user);
+
+                // Save user data to the database
+                await addDoc(collection(database, "User Data"), { email, password, uid: userCredential.user.uid });
+
+                setMessage('Registration successful! Please check your email for verification.');
+            } catch (error) {
+                console.error("Error adding user: ", error);
+                setMessage('Registration failed. Please try again.');
+            }
         } else {
             setMessage('Please fill out all fields.');
         }
     };
+
+    const handleReturnToLogin = () => {
+        setTimeout(() => {
+          history.push('/');
+          window.location.reload();
+        }, 500);
+      };
 
     return (
         <div className="registration-container">
             <h2>Registration</h2>
             <div>
                 <label>
-                    Username: 
-                    <input type="text" value={username} onChange={(e) => setName(e.target.value)} />
-                </label>
-            </div>
-            <div>
-                <label>
-                    Password: 
-                    <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-                </label>
-            </div>
-            <div>
-                <label>
-                    Email: 
+                    Email:
                     <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                </label>
+            </div>
+            <div>
+                <label>
+                    Password:
+                    <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
                 </label>
             </div>
             <button onClick={handleSubmit}>Register</button>
             {message && <p>{message}</p>}
+
+            {/* Button to navigate back to the login page */}
+            <button className="App-button" onClick={handleReturnToLogin}>Return to Login</button>
         </div>
     );
 };
 
-export default Registration;
+export default Register;

@@ -1,0 +1,36 @@
+name: Continuous Integration
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '18.17.1'
+
+    - name: Change to App Directory
+      run: cd devhelper
+
+    - name: Install Dependencies
+      run: npm install
+      working-directory: ./devhelper
+
+    - name: Build
+      run: npm run build
+      working-directory: ./devhelper
+
+
+    - name: Run Tests
+      run: npm run test
+      working-directory: ./devhelper
+
