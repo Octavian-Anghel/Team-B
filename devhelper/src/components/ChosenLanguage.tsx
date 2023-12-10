@@ -36,7 +36,7 @@ const LanguageSelector: React.FC<LanguageSelectorProps> = ({ language }) => {
   };
 
   return (
-    <div>
+    <div className="button-container">
       <button onClick={() => setSelectedLanguage('Python')}>Python</button>
       <button onClick={() => setSelectedLanguage('Java')}>Java</button>
       <button onClick={() => setSelectedLanguage('C')}>C Programming</button>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
-import "../App.css";
+import "../css/homepage.css";
 import { MessageComponent } from "./Message";
 
 const Homepage: React.FC = () => {
@@ -70,7 +70,7 @@ const Homepage: React.FC = () => {
           Forum
         </button>
       </div>
-      <p>
+      <p className="homepage-paragraph">
         {" "}
         Welcome to DevHelper, the go-to platform for programming enthusiasts and
         developers alike! Whether you're interested in Python, Java, or C
