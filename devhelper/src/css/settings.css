@@ -1,0 +1,43 @@
+.settings-container {
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .theme-toggle {
+    margin-bottom: 20px;
+  }
+  
+  .theme-toggle label {
+    display: block;
+    font-weight: bold;
+  }
+  
+  .theme-toggle button {
+    padding: 5px 10px;
+    background-color: #007acc;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .theme-toggle button:hover {
+    background-color: #005a9c;
+  }
+  
+  .language-select label {
+    display: block;
+    font-weight: bold;
+  }
+  
+  .language-select select {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
