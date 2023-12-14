@@ -56,7 +56,7 @@ const Login: React.FC = () => {
 
       const handleRegister= () => {
         setTimeout(() => {
-          history.push('/');
+          history.push('/signup');
           window.location.reload();
         }, 500);
       };
