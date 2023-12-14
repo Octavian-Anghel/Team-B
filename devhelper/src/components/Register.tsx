@@ -6,7 +6,6 @@ import { firebaseConfig } from "../firebase-config";
 import { useHistory } from 'react-router-dom';
 import '../css/register.css'
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const database = getFirestore(app);
 const auth = getAuth(app);
